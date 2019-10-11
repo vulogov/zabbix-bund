@@ -1,9 +1,9 @@
 package main
 
 import (
-	"os"
-	"fmt"
+	"github.com/vulogov/zabbix-bund/cmd"
 )
 
 func main() {
+	cmd.Execute()
 }
