@@ -2,7 +2,8 @@ package cmd
 
 import (
 	"fmt"
-
+  "github.com/fatih/color"
+  "github.com/vulogov/zabbix-bund/bund_context"
 	"github.com/spf13/cobra"
 )
 
@@ -12,7 +13,8 @@ var versionCmd = &cobra.Command{
 	Short: "bund version",
 	Long:  `Displays current version of the zabbix-bund package`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("[BUND> 0.1")
+    fmt.Println(color.YellowString(bund_context.Logo.String()))
+		fmt.Println(color.WhiteString("Zabbix-Bund"), " ", color.RedString(bund_context.Version_Num), " ",color.GreenString(bund_context.Version_Release))
 	},
 }
 
