@@ -35,12 +35,16 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.zabbix-bund)")
-	rootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", false, "Verbose output")
+	rootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", true, "Verbose output")
+
 	rootCmd.PersistentFlags().Bool("viper", true, "use Viper for configuration")
 	//viper.BindPFlag("useViper", rootCmd.PersistentFlags().Lookup("viper"))
 
 	//rootCmd.AddCommand(addCmd)
 	//rootCmd.AddCommand(initCmd)
+  fmt.Println(Verbose)
+  bund_log.Init_Log(Verbose)
+  bund_log.Log.Debug("root_init process complete")
 }
 
 func initConfig() {
