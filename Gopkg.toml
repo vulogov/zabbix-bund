@@ -11,10 +11,11 @@ required = ["github.com/antlr/antlr4/runtime/Go/antlr",
             "github.com/hashicorp/raft",
             "github.com/akhenakh/statgo",
             "github.com/erikdubbelboer/gspt",
-	    "github.com/spf13/viper",
-	    "github.com/spf13/cobra",
-	    "github.com/mitchellh/go-homedir",
-	    "github.com/patrickmn/go-cache"]
+	          "github.com/spf13/viper",
+	          "github.com/spf13/cobra",
+	          "github.com/mitchellh/go-homedir",
+	          "github.com/patrickmn/go-cache",
+            "sync/atomic"]
 # ignored = ["github.com/user/project/pkgX", "bitbucket.org/user/project/pkgA/pkgY"]
 #
 # [[constraint]]
