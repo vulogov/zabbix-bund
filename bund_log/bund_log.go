@@ -1,22 +1,32 @@
 package bund_log
 import (
-  "os"
-  "github.com/op/go-logging"
+  log "github.com/sirupsen/logrus"
 )
 
-var Log = logging.MustGetLogger("bund")
-var format = logging.MustStringFormatter(
-        `%{color}%{time:15:04:05.000} %{shortfunc} ▶ %{level:.4s} %{id:03x}%{color:reset} %{message}`,
-)
 
-func Init_Log(verbose bool) {
-  log_backend := logging.NewLogBackend(os.Stderr, "", 0)
-  log_fmt :=  logging.NewBackendFormatter(log_backend, format)
-  log_level := logging.AddModuleLevel(log_backend)
-  if verbose == true {
-    log_level.SetLevel(logging.DEBUG, "")
-  } else {
-    log_level.SetLevel(logging.ERROR, "")
+func Init_Log(verbose string, output string) {
+  switch output {
+    case "json":
+      log.SetFormatter(&log.JSONFormatter{})
+    default:
+      log.SetFormatter(&log.TextFormatter{})
   }
-  logging.SetBackend(log_fmt)
+  switch verbose {
+    case "trace":
+      log.SetLevel(log.TraceLevel)
+    case "debug":
+      log.SetLevel(log.DebugLevel)
+    case "warning":
+      log.SetLevel(log.WarnLevel)
+    case "error":
+      log.SetLevel(log.ErrorLevel)
+    case "fatal":
+      log.SetLevel(log.FatalLevel)
+    default:
+      log.SetLevel(log.InfoLevel)
+  }
+  log.WithFields(log.Fields{
+    "output": output,
+    "level": verbose,
+  }).Info("Log output configured")
 }

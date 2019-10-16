@@ -15,7 +15,10 @@ required = ["github.com/antlr/antlr4/runtime/Go/antlr",
 	          "github.com/spf13/cobra",
 	          "github.com/mitchellh/go-homedir",
 	          "github.com/patrickmn/go-cache",
-            "sync/atomic"]
+            "github.com/montanaflynn/stats",
+            "github.com/d5/tengo",
+            "github.com/glycerine/zygomys",
+            "github.com/sirupsen/logrus"]
 # ignored = ["github.com/user/project/pkgX", "bitbucket.org/user/project/pkgA/pkgY"]
 #
 # [[constraint]]
@@ -44,3 +47,11 @@ required = ["github.com/antlr/antlr4/runtime/Go/antlr",
 [[constraint]]
   branch = "master"
   name = "github.com/erikdubbelboer/gspt"
+
+[[constraint]]
+  name = "github.com/glycerine/zygomys"
+  version = "1.3.9"
+
+[[constraint]]
+  name = "github.com/sirupsen/logrus"
+  version = "1.4.2"

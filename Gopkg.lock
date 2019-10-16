@@ -34,6 +34,14 @@
   revision = "67e0ed34491ae997c83c5aa2a1cae2cfd4b4ac41"
 
 [[projects]]
+  digest = "1:0ff7e2c1905ce461195c44d6c945d2c6e9bc517ce28c1ef4dcc6c801ddedd609"
+  name = "github.com/d5/tengo"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "98ec4c62c36dca5c5a604d652e6adba30df65ff6"
+  version = "v1.24.3"
+
+[[projects]]
   branch = "master"
   digest = "1:0b3ed584c87deab2449e02742b9309ce07800d1da921265fa4f679217b08b9b1"
   name = "github.com/erikdubbelboer/gspt"
@@ -56,6 +64,25 @@
   pruneopts = "UT"
   revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
   version = "v1.4.7"
+
+[[projects]]
+  digest = "1:594a88a2abff0642490227b60610d4ddbc4c5de613f1c86032c2013700707aa1"
+  name = "github.com/glycerine/goconvey"
+  packages = ["convey"]
+  pruneopts = "UT"
+  revision = "728b3f160cb397ba18120323ed26777ea872304e"
+  version = "1.5.0"
+
+[[projects]]
+  digest = "1:f93196812ae9af8b86011504f21552c8b7ee5141127f285ec7e52eaaa45c0c10"
+  name = "github.com/glycerine/zygomys"
+  packages = [
+    ".",
+    "repl",
+  ]
+  pruneopts = "UT"
+  revision = "db3de2b24ff82de51c84456dfb8bfce56c88e51b"
+  version = "v1.3.9"
 
 [[projects]]
   digest = "1:cf6b61e1b4c26b0c7526cee4a0cee6d8302b17798af4b2a56a90eedac0aef11a"
@@ -125,6 +152,22 @@
   version = "v1.0"
 
 [[projects]]
+  branch = "master"
+  digest = "1:c4083d09c730cb707ae3727184e4c8ca2401aa256f203cd80453fbc7570213ef"
+  name = "github.com/jacobsa/oglematchers"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "141901ea67cd4769c6800aa7bfdfc558fa22bda5"
+
+[[projects]]
+  digest = "1:31e761d97c76151dde79e9d28964a812c46efc5baee4085b86f68f0c654450de"
+  name = "github.com/konsorten/go-windows-terminal-sequences"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "f55edac94c9bbba5d6182a4be46d86a2c9b5b50e"
+  version = "v1.0.2"
+
+[[projects]]
   digest = "1:5a0ef768465592efca0412f7e838cdc0826712f8447e70e6ccc52eb441e9ab13"
   name = "github.com/magiconair/properties"
   packages = ["."]
@@ -149,6 +192,14 @@
   version = "v0.0.10"
 
 [[projects]]
+  digest = "1:0356f3312c9bd1cbeda81505b7fd437501d8e778ab66998ef69f00d7f9b3a0d7"
+  name = "github.com/mattn/go-runewidth"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "3ee7d812e62a0804a7d0a324e0249ca2db3476d3"
+  version = "v0.0.4"
+
+[[projects]]
   digest = "1:5d231480e1c64a726869bc4142d270184c419749d34f167646baa21008eb0a79"
   name = "github.com/mitchellh/go-homedir"
   packages = ["."]
@@ -163,6 +214,14 @@
   pruneopts = "UT"
   revision = "3536a929edddb9a5b34bd6861dc4a9647cb459fe"
   version = "v1.1.2"
+
+[[projects]]
+  digest = "1:3465cca9dac8f89b9966d86bf2646cab7703075fe32c185462f8bccc9017e6df"
+  name = "github.com/montanaflynn/stats"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "63fbb2597b7a13043b453a4b819945badb8f8926"
+  version = "v0.5.0"
 
 [[projects]]
   digest = "1:5b3b29ce0e569f62935d9541dff2e16cc09df981ebde48e82259076a73a3d0c7"
@@ -187,6 +246,65 @@
   pruneopts = "UT"
   revision = "8fe62057ea2d46ce44254c98e84e810044dbe197"
   version = "v1.5.0"
+
+[[projects]]
+  digest = "1:3adb9a64324d242301833d0b8b3bb51b4f31f928d5a05224256121dc5b8895c7"
+  name = "github.com/peterh/liner"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "5a0dfa99e2aa1d433a9642e863da51402e609376"
+  version = "v1.1.0"
+
+[[projects]]
+  digest = "1:5e73b34a27d827212102605789de00bd411b2e434812133c83935fe9897c75e1"
+  name = "github.com/philhofer/fwd"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "bb6d471dc95d4fe11e432687f8b70ff496cf3136"
+  version = "v1.0.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:c46a4157f74a181fab75707f9af94d77f8fcb1285d8eccd9451788586f42fe3e"
+  name = "github.com/shurcooL/go"
+  packages = [
+    "parserutil",
+    "printerutil",
+    "reflectfind",
+    "reflectsource",
+  ]
+  pruneopts = "UT"
+  revision = "7189cc372560f641a5c041d2b199d9b0a41293c4"
+
+[[projects]]
+  branch = "master"
+  digest = "1:c347b6831c73fad4137117fb7e2cf1bc7ff03206ddcd7fb184e9af4fc96fa5b6"
+  name = "github.com/shurcooL/go-goon"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "37c2f522c041b74919a9e5e3a6c5c47eb34730a5"
+
+[[projects]]
+  digest = "1:04457f9f6f3ffc5fea48e71d62f2ca256637dee0a04d710288e27e05c8b41976"
+  name = "github.com/sirupsen/logrus"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "839c75faf7f98a33d445d181f3018b5c3409a45e"
+  version = "v1.4.2"
+
+[[projects]]
+  digest = "1:404a3a5e01201f725370ee0d512c86449fc4b4bf39c5d4139c83fac10437425e"
+  name = "github.com/smartystreets/goconvey"
+  packages = [
+    "assertions",
+    "execution",
+    "gotest",
+    "printing",
+    "reporting",
+  ]
+  pruneopts = "UT"
+  revision = "728b3f160cb397ba18120323ed26777ea872304e"
+  version = "1.5.0"
 
 [[projects]]
   digest = "1:bb495ec276ab82d3dd08504bbc0594a65de8c3b22c6f2aaa92d05b73fbf3a82e"
@@ -240,12 +358,28 @@
   version = "v1.4.0"
 
 [[projects]]
+  digest = "1:c97e8a5e5c435c3287f581cdb4441ba34577ec6ead8422bfedafa6269af7abf6"
+  name = "github.com/tinylib/msgp"
+  packages = ["msgp"]
+  pruneopts = "UT"
+  revision = "af6442a0fcf6e2a1b824f70dd0c734f01e817751"
+  version = "v1.1.0"
+
+[[projects]]
+  digest = "1:5a1cf4e370bc86137b58da2ae065e76526d32b11f62a7665f36dbd5f41fa95ff"
+  name = "github.com/ugorji/go"
+  packages = ["codec"]
+  pruneopts = "UT"
+  revision = "23ab95ef5dc3b70286760af84ce2327a2b64ed62"
+  version = "v1.1.7"
+
+[[projects]]
   branch = "master"
   digest = "1:7c927f17d868be652a4cfe7de23e4292dea5b14d974a1d536e3b7cb7e79fd695"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "UT"
-  revision = "06d7bd2c5f4f4a6cc6e910b611851044253bd7d1"
+  revision = "b09406accb4736d857a32bf9444cd7edae2ffa79"
 
 [[projects]]
   digest = "1:1093f2eb4b344996604f7d8b29a16c5b22ab9e1b25652140d3fede39f640d5cd"
@@ -277,12 +411,16 @@
     "github.com/akhenakh/statgo",
     "github.com/antlr/antlr4/runtime/Go/antlr",
     "github.com/common-nighthawk/go-figure",
+    "github.com/d5/tengo",
     "github.com/erikdubbelboer/gspt",
     "github.com/fatih/color",
+    "github.com/glycerine/zygomys",
     "github.com/hashicorp/raft",
     "github.com/mitchellh/go-homedir",
+    "github.com/montanaflynn/stats",
     "github.com/op/go-logging",
     "github.com/patrickmn/go-cache",
+    "github.com/sirupsen/logrus",
     "github.com/spf13/cobra",
     "github.com/spf13/viper",
   ]

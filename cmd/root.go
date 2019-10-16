@@ -4,6 +4,7 @@ import (
   "os"
 	"fmt"
   "github.com/vulogov/zabbix-bund/bund_log"
+  log "github.com/sirupsen/logrus"
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -12,7 +13,8 @@ import (
 var (
 	// Used for flags.
 	cfgFile     string
-	Verbose     bool
+  logverbose  string
+  logoutput   string
 
 
 	rootCmd = &cobra.Command{
@@ -26,7 +28,7 @@ and processing system.`,
 // Execute executes the root command.
 func Execute() {
   if err := rootCmd.Execute(); err != nil {
-		bund_log.Log.Error(err.Error())
+		log.Error(err.Error())
 		os.Exit(1)
 	}
 }
@@ -35,16 +37,14 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.zabbix-bund)")
-	rootCmd.PersistentFlags().BoolVarP(&Verbose, "verbose", "v", true, "Verbose output")
+	rootCmd.PersistentFlags().StringVarP(&logverbose, "verbose", "v", "info", "Level for the logging (trace,debug,warning,info,fatal)")
+  rootCmd.PersistentFlags().StringVarP(&logoutput, "logfmt", "l", "text", "Format of the log output (text,json)")
 
-	rootCmd.PersistentFlags().Bool("viper", true, "use Viper for configuration")
+	// rootCmd.PersistentFlags().Bool("viper", true, "use Viper for configuration")
 	//viper.BindPFlag("useViper", rootCmd.PersistentFlags().Lookup("viper"))
 
 	//rootCmd.AddCommand(addCmd)
 	//rootCmd.AddCommand(initCmd)
-  fmt.Println(Verbose)
-  bund_log.Init_Log(Verbose)
-  bund_log.Log.Debug("root_init process complete")
 }
 
 func initConfig() {
@@ -55,7 +55,7 @@ func initConfig() {
 		// Find home directory.
 		home, err := homedir.Dir()
 		if err != nil {
-			bund_log.Log.Error(err.Error())
+			log.Error(err.Error())
       os.Exit(1)
 		}
 
@@ -69,4 +69,6 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
+  bund_log.Init_Log(logverbose, logoutput)
+  log.Debug("root_init process complete")
 }
