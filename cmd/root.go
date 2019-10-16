@@ -40,11 +40,6 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&logverbose, "verbose", "v", "info", "Level for the logging (trace,debug,warning,info,fatal)")
   rootCmd.PersistentFlags().StringVarP(&logoutput, "logfmt", "l", "text", "Format of the log output (text,json)")
 
-	// rootCmd.PersistentFlags().Bool("viper", true, "use Viper for configuration")
-	//viper.BindPFlag("useViper", rootCmd.PersistentFlags().Lookup("viper"))
-
-	//rootCmd.AddCommand(addCmd)
-	//rootCmd.AddCommand(initCmd)
 }
 
 func initConfig() {
