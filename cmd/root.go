@@ -4,6 +4,7 @@ import (
   "os"
 	"fmt"
   "github.com/vulogov/zabbix-bund/bund_log"
+  bctx "github.com/vulogov/zabbix-bund/bund_context"
   log "github.com/sirupsen/logrus"
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
@@ -12,10 +13,6 @@ import (
 
 var (
 	// Used for flags.
-	cfgFile     string
-  logverbose  string
-  logoutput   string
-
 
 	rootCmd = &cobra.Command{
 		Use:   "zabbix-bund",
@@ -36,16 +33,16 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 
-	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.zabbix-bund)")
-	rootCmd.PersistentFlags().StringVarP(&logverbose, "verbose", "v", "info", "Level for the logging (trace,debug,warning,info,fatal)")
-  rootCmd.PersistentFlags().StringVarP(&logoutput, "logfmt", "l", "text", "Format of the log output (text,json)")
+	rootCmd.PersistentFlags().StringVar(&bctx.CfgFile, "config", "", "config file (default is $HOME/.zabbix-bund)")
+	rootCmd.PersistentFlags().StringVarP(&bctx.Logverbose, "verbose", "v", "info", "Level for the logging (trace,debug,warning,info,fatal)")
+  rootCmd.PersistentFlags().StringVarP(&bctx.Logoutput, "logfmt", "l", "text", "Format of the log output (text,json)")
 
 }
 
 func initConfig() {
-	if cfgFile != "" {
+	if bctx.CfgFile != "" {
 		// Use config file from the flag.
-		viper.SetConfigFile(cfgFile)
+		viper.SetConfigFile(bctx.CfgFile)
 	} else {
 		// Find home directory.
 		home, err := homedir.Dir()
@@ -64,6 +61,6 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
-  bund_log.Init_Log(logverbose, logoutput)
+  bund_log.Init_Log(bctx.Logverbose, bctx.Logoutput)
   log.Debug("root_init process complete")
 }
