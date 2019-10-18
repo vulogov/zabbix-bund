@@ -15,5 +15,11 @@ var (
   Logverbose  string
   Logoutput   string
   ScriptFile  string
-  LispConfig  string
+  InstanceNo  int
+  InstanceN   string
+  DataDir     string
+  RaftDir     string
+  HTTPBind    string
+  RaftBind    string
+  JoinAddr    string
 )

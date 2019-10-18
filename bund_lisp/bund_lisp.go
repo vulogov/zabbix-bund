@@ -4,6 +4,7 @@ import (
   log "github.com/sirupsen/logrus"
   "github.com/glycerine/zygomys/zygo"
 )
+
 func ZB_repl() {
   log.Debug("Entering embedded LISP REPL")
   zygo.ReplMain(lcfg)
