@@ -4,7 +4,6 @@ import (
   "github.com/spf13/cobra"
   log "github.com/sirupsen/logrus"
   bctx "github.com/vulogov/zabbix-bund/bund_context"
-  bund "github.com/vulogov/zabbix-bund/bund_logic"
 )
 
 // helloCmd represents the hello command
@@ -17,9 +16,6 @@ var serverCmd = &cobra.Command{
       bctx.InstanceN = "server"
     }
     log.Debug("Executing ", bctx.InstanceN, "#", bctx.InstanceNo)
-    is_raft, _ := rootCmd.PersistentFlags().GetBool("noraft")
-    is_rest, _ := rootCmd.PersistentFlags().GetBool("norest")
-    bund.Init_Internal_Components(is_raft, is_rest)
   },
 }
 

@@ -2,6 +2,7 @@ package bund_context
 
 import (
   "github.com/common-nighthawk/go-figure"
+  "github.com/google/uuid"
 )
 
 var Version = "Zabbix-Bund version 0.1.1 (development release)"
@@ -15,11 +16,12 @@ var (
   Logverbose  string
   Logoutput   string
   ScriptFile  string
-  InstanceNo  int
+  InstanceNo  uint32
   InstanceN   string
   DataDir     string
   RaftDir     string
   HTTPBind    string
   RaftBind    string
   JoinAddr    string
+  BundId      uuid.UUID
 )

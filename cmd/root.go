@@ -15,7 +15,6 @@ import (
 
 var (
 	// Used for flags.
-
 	rootCmd = &cobra.Command{
 		Use:   "zabbix-bund",
 		Short: "Universal client/server for zabbix-bund",
@@ -39,7 +38,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&bctx.Logverbose, "verbose", "v", "info", "Level for the logging (trace,debug,warning,info,fatal)")
   rootCmd.PersistentFlags().StringVarP(&bctx.Logoutput, "logfmt", "l", "text", "Format of the log output (text,json)")
   rootCmd.PersistentFlags().StringVarP(&bctx.InstanceN, "name", "n", "", "Name of the instance")
-  rootCmd.PersistentFlags().IntVarP(&bctx.InstanceNo, "number", "#", 0, "Number of the instance")
+  rootCmd.PersistentFlags().Uint32VarP(&bctx.InstanceNo, "number", "#", 0, "Number of the instance")
   rootCmd.PersistentFlags().StringVarP(&bctx.DataDir, "data", "d", "", "Data directory")
   rootCmd.PersistentFlags().StringVarP(&bctx.RaftDir, "rdata", "a", "", "Raft directory")
   rootCmd.PersistentFlags().StringVarP(&bctx.HTTPBind, "http", "t", ":21080", "HTTP endpoint bind address")
@@ -62,7 +61,6 @@ func initConfig() {
       os.Exit(1)
 		}
 
-		// Search config in home directory with name ".zabbix-bund" (without extension).
 		viper.AddConfigPath(home)
 		viper.SetConfigName(".zabbix-bund")
 	}
@@ -70,7 +68,7 @@ func initConfig() {
 	viper.AutomaticEnv()
 
 	if err := viper.ReadInConfig(); err == nil {
-		fmt.Println("Using config file:", viper.ConfigFileUsed())
+		log.Debug(fmt.Sprintf("Using config file:", viper.ConfigFileUsed()))
 	}
   bund_log.Init_Log(bctx.Logverbose, bctx.Logoutput)
   is_raft, _ := rootCmd.PersistentFlags().GetBool("is_raft")
