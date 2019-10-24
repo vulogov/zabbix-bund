@@ -20,7 +20,9 @@ required = ["github.com/antlr/antlr4/runtime/Go/antlr",
             "github.com/glycerine/zygomys",
             "github.com/sirupsen/logrus",
             "github.com/kballard/go-shellquote",
-            "github.com/google/uuid"]
+            "github.com/google/uuid",
+            "github.com/hashicorp/raft-boltdb",
+            "github.com/boltdb/bolt"]
 
 # ignored = ["github.com/user/project/pkgX", "bitbucket.org/user/project/pkgA/pkgY"]
 #

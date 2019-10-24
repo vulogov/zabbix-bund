@@ -22,6 +22,7 @@ var (
   RaftDir     string
   HTTPBind    string
   RaftBind    string
+  AdvertiseAddr string
   JoinAddr    string
   BundId      uuid.UUID
 )

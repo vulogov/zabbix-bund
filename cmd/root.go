@@ -38,12 +38,13 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&bctx.Logverbose, "verbose", "v", "info", "Level for the logging (trace,debug,warning,info,fatal)")
   rootCmd.PersistentFlags().StringVarP(&bctx.Logoutput, "logfmt", "l", "text", "Format of the log output (text,json)")
   rootCmd.PersistentFlags().StringVarP(&bctx.InstanceN, "name", "n", "", "Name of the instance")
-  rootCmd.PersistentFlags().Uint32VarP(&bctx.InstanceNo, "number", "#", 0, "Number of the instance")
+  rootCmd.PersistentFlags().Uint32VarP(&bctx.InstanceNo, "number", "", 1, "Number of the instance")
   rootCmd.PersistentFlags().StringVarP(&bctx.DataDir, "data", "d", "", "Data directory")
   rootCmd.PersistentFlags().StringVarP(&bctx.RaftDir, "rdata", "a", "", "Raft directory")
   rootCmd.PersistentFlags().StringVarP(&bctx.HTTPBind, "http", "t", ":21080", "HTTP endpoint bind address")
   rootCmd.PersistentFlags().StringVarP(&bctx.RaftBind, "raft", "r", ":21081", "RAFT endpoint bind address")
-  rootCmd.PersistentFlags().StringVarP(&bctx.JoinAddr, "join", "j", "localhost:21081", "RAFT join address")
+  rootCmd.PersistentFlags().StringVarP(&bctx.AdvertiseAddr, "addr", "e", ":21081", "Advertised address")
+  rootCmd.PersistentFlags().StringVarP(&bctx.JoinAddr, "join", "j", "", "RAFT join address")
   rootCmd.PersistentFlags().Bool("is_raft", true, "Do start the RAFT")
   rootCmd.PersistentFlags().Bool("is_rest", true, "Do start the REST")
 
@@ -73,6 +74,7 @@ func initConfig() {
   bund_log.Init_Log(bctx.Logverbose, bctx.Logoutput)
   is_raft, _ := rootCmd.PersistentFlags().GetBool("is_raft")
   is_rest, _ := rootCmd.PersistentFlags().GetBool("is_rest")
+  log.Debug("Called commandpath", rootCmd.Name())
   bund.Init_Internal_Components(is_raft, is_rest)
   log.Debug("root_init process complete")
 }
